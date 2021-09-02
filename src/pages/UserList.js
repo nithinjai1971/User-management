@@ -9,7 +9,7 @@ function UserList({ users }) {
   const history = useHistory();
 
   return (
-    <div className="mx-auto w-50 text-center">
+    <div className="mx-auto w-75 text-center">
       <Table dark>
         <thead>
           <tr>
