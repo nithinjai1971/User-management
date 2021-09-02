@@ -1,16 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
 
 export const userSlice = createSlice({
   name: "users",
-  initialState: [
-    { id: uuidv4(), name: "Jane", email: "jane@gmail.com" },
-    { id: uuidv4(), name: "Chris", email: "Chris@gmail.com" },
-    { id: uuidv4(), name: "John", email: "john@gmail.com" },
-    { id: uuidv4(), name: "Rose", email: "rose@gmail.com" },
-    { id: uuidv4(), name: "Jack", email: "jack@gmail.com" },
-  ],
+  initialState: [],
   reducers: {
+    setUsers: (state, action) => {
+      return action.payload;
+    },
     addUser: (state, action) => {
       state.push(action.payload);
     },
@@ -29,5 +25,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addUser, editUser, deleteUser } = userSlice.actions;
+export const { setUsers, addUser, editUser, deleteUser } = userSlice.actions;
 export default userSlice.reducer;

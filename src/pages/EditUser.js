@@ -1,26 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Button } from "reactstrap";
-import { addUser } from "../redux/userSlice";
-import { useHistory } from "react-router-dom";
+import { editUser } from "../redux/userSlice";
+import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 
-function AddUser() {
+function EditUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
-  const onSubmit = (e) => {
+  useEffect(() => {
+    setId(location.state.id);
+    setName(location.state.name);
+    setEmail(location.state.email);
+  }, [location]);
+
+  const onEdit = (e) => {
     e.preventDefault();
-    dispatch(addUser({ id: uuidv4(), name, email }));
+    dispatch(editUser({ id, name, email }));
     history.push("/");
   };
 
   return (
     <div className="container p-4">
       <Form>
-        <h4 className="mb-3">Add User Details</h4>
+        <h4 className="mb-3">Edit User Details</h4>
         <Input
           type="name"
           className="mb-3"
@@ -37,7 +44,7 @@ function AddUser() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter user email"
         />
-        <Button color="primary" onClick={(e) => onSubmit(e)}>
+        <Button color="primary" onClick={(e) => onEdit(e)}>
           Submit
         </Button>
       </Form>
@@ -45,4 +52,4 @@ function AddUser() {
   );
 }
 
-export default AddUser;
+export default EditUser;

@@ -10,7 +10,7 @@ function Home() {
   return (
     <div className="container">
       <div className="d-flex justify-content-end w-50 mx-auto mb-3">
-        <Link to="/add-user">
+        <Link to="/create">
           <Button color="primary" size="sm">
             Add User
           </Button>

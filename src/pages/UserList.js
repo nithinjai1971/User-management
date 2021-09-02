@@ -31,12 +31,11 @@ function UserList({ users }) {
                   size="sm"
                   onClick={() =>
                     history.push({
-                      pathname: "/add-user",
+                      pathname: "/edit",
                       state: {
                         id: user.id,
                         name: user.name,
                         email: user.email,
-                        isEdit: true,
                       },
                     })
                   }
