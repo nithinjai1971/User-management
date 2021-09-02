@@ -8,11 +8,11 @@ function App() {
     <Router>
       <Switch>
         <Route path="/add-user">
-          <h1 className="text-center">Users of GetSocial App</h1>
+          <h1 className="text-center">Users of Get Social App</h1>
           <AddUser />
         </Route>
         <Route path="/">
-          <h1 className="text-center">Users of GetSocial App</h1>
+          <h1 className="text-center">Users of Get Social App</h1>
           <Home />
         </Route>
       </Switch>
